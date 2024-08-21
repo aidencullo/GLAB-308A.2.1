@@ -1,4 +1,4 @@
-g// Objectives
+// Objectives
 // Use nested arrays and objects.
 // Combine objects, arrays, and functions.
 // Create a class to define the blueprint for creating objects.
@@ -115,9 +115,8 @@ robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 
 class Adventurer extends Character {
-  constructor (name, role) {
+  constructor (name, inventory=[]) {
     super(name);
-    this.role = role;
     this.inventory.push("bedroll", "50 gold coins");
   }
   scout () {
@@ -146,10 +145,10 @@ class Adventurer extends Character {
 
 
 class Companion extends Character {
-  constructor (name, type) {
+  constructor (name, type, inventory=[]) {
     super(name);
     this.type = type;
-    this.inventory.push("bedroll", "50 gold coins");
+    this.inventory = inventory;
   }
   help () {
     console.log(`${this.name} is helping behind...`);
@@ -161,3 +160,11 @@ class Companion extends Character {
 // The companion’s type is “Flea.”
 // The companion has its own belongings, which includes a small hat and sunglasses.
 
+
+// Finally, change the declaration of Robin and the companions to use the new Adventurer and Companion classes.
+
+
+
+const newRobin = new Adventurer("Robin", ["sword", "potion", "artifact"]);
+const newLeo = new Companion("Leo", "Cat");
+const newFrank = new Companion("Frank", "Flea", ["small hat", "sunglasses"]);
