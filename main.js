@@ -117,14 +117,24 @@ robin.companion.companion.inventory = ["small hat", "sunglasses"];
 class Adventurer extends Character {
   constructor (name, role) {
     super(name);
-    // Adventurers have specialized roles.
     this.role = role;
-    // Every adventurer starts with a bed and 50 gold coins.
     this.inventory.push("bedroll", "50 gold coins");
   }
-  // Adventurers have the ability to scout ahead of them.
   scout () {
     console.log(`${this.name} is scouting ahead...`);
     super.roll();
   }
+  whistle () {
+    console.log(`${this.name} is whistling loudly...`);
+    super.roll();
+  }
+  camp () {
+    console.log(`${this.name} is camping behind...`);
+    super.roll();
+  }
 }
+
+
+
+// What else should an adventurer be able to do? What other properties should they have?
+
