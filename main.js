@@ -215,7 +215,37 @@ class AdventurerFactory {
   findByName (name) {
     return this.adventurers.find((a) => a.name === name);
   }
+  duel (adventurer) {
+    const myRoll = this.roll();
+    const theirRoll = adventurer.roll();
+    while (this.health > 50 && adventurer.health > 50) {
+      if (myRoll > theirRoll) {
+	adventurer.health -= 1;
+      } else {
+	this.health -= 1;
+      }
+    }
+    if (this.health > 50) {
+      console.log(`${this.name} wins!`);
+    } else {
+      console.log(`${adventurer.name} wins!`);
+    }
+  }
 }
 
 const healers = new AdventurerFactory("Healer");
 const robin = healers.generate("Robin");
+
+
+
+// Part 6: Developing Skills
+// Many of the core features of these characters are now implemented, but the adventurers cannot  really do much yet. The only action (method) they have is scout().
+// Create an additional method, duel(), for the Adventurer class with the following functionality:
+// Accept an Adventurer as a parameter.
+// Use the roll() functionality to create opposing rolls for each adventurer.
+// Subtract 1 from the adventurer with the lower roll.
+// Log the results of this “round” of the duel, including the rolls and current health values.
+// Repeat this process until one of the two adventurers reaches 50 health.
+// Log the winner of the duel: the adventurer still above 50 health.
+
+
