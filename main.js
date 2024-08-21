@@ -78,4 +78,9 @@ const adventurer = {
   },
 }
 
-adventurer.roll(2)
+adventurer.roll();
+adventurer.roll();
+adventurer.roll();
+adventurer.roll();
+adventurer.roll();
+adventurer.roll();
