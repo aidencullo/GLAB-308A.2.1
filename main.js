@@ -9,3 +9,14 @@
 // Develop a class that inherits attributes from a "parent" class.
 // Create static properties for a class.
 // Create a "factory."
+
+
+const adventurer = {
+  name: "Robin",
+  health: 10,
+  inventory: ["sword", "potion", "artifact"]
+}
+
+// As an additional practice exercise, create a loop that logs each item in Robin’s inventory.
+
+adventurer.inventory.map(console.log)
