@@ -95,6 +95,8 @@
 
 
 class Character {
+  static MAX_HEALTH = 100;
+
   constructor (name) {
     this.name = name;
     this.health = 100;
@@ -115,8 +117,15 @@ robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 
 class Adventurer extends Character {
-  constructor (name, inventory=[]) {
+
+  static ROLES = ["Fighter", "Healer", "Wizard"];
+  
+  constructor (name, role, inventory=[]) {
+    if (!Adventurer.ROLES.includes(role)) {
+      throw new Error("Invalid role.");
+    }
     super(name);
+    this.role = role;
     this.inventory.push("bedroll", "50 gold coins");
   }
   scout () {
@@ -165,6 +174,20 @@ class Companion extends Character {
 
 
 
-const newRobin = new Adventurer("Robin", ["sword", "potion", "artifact"]);
+const newRobin = new Adventurer("Robin", "Fighter", ["sword", "potion", "artifact"]);
 const newLeo = new Companion("Leo", "Cat");
 const newFrank = new Companion("Frank", "Flea", ["small hat", "sunglasses"]);
+
+
+
+
+
+
+// Part 4: Class Uniforms
+// Using static properties and methods, you can create uniform attributes for the class itself rather than instances of the class. Static properties are typically constant values that can be used elsewhere for reference, or utility methods that do not rely on the values of a specific class instance.
+// Using the static keyword:
+// Add a static MAX_HEALTH property to the Character class, equal to 100.
+// Add a static ROLES array to the Adventurer class, with the values “Fighter,” “Healer,” and “Wizard.” Feel free to add other roles, if you desire!
+// Add a check to the constructor of the Adventurer class that ensures the given role matches one of these values.
+// Are there other static properties or methods that make sense to add to these classes?
+
