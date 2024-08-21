@@ -102,6 +102,12 @@ class Character {
     this.health = 100;
     this.inventory = [];
   }
+
+  roll (mod = 0) {
+    const result = Math.floor(Math.random() * 20) + 1 + mod;
+    console.log(`${this.name} rolled a ${result}.`);
+    return result;
+  }
 }
 
 
@@ -139,6 +145,22 @@ class Adventurer extends Character {
   camp () {
     console.log(`${this.name} is camping behind...`);
     super.roll();
+  }
+  duel (adventurer) {
+    while (this.health > 50 && adventurer.health > 50) {
+      const myRoll = this.roll();
+      const theirRoll = adventurer.roll();
+      if (myRoll > theirRoll) {
+	adventurer.health -= 1;
+      } else {
+	this.health -= 1;
+      }
+    }
+    if (this.health > 50) {
+      console.log(`${this.name} wins!`);
+    } else {
+      console.log(`${adventurer.name} wins!`);
+    }
   }
 }
 
@@ -208,6 +230,7 @@ class AdventurerFactory {
   generate (name) {
     const newAdventurer = new Adventurer(name, this.role);
     this.adventurers.push(newAdventurer);
+    return newAdventurer;
   }
   findByIndex (index) {
     return this.adventurers[index];
@@ -215,27 +238,12 @@ class AdventurerFactory {
   findByName (name) {
     return this.adventurers.find((a) => a.name === name);
   }
-  duel (adventurer) {
-    const myRoll = this.roll();
-    const theirRoll = adventurer.roll();
-    while (this.health > 50 && adventurer.health > 50) {
-      if (myRoll > theirRoll) {
-	adventurer.health -= 1;
-      } else {
-	this.health -= 1;
-      }
-    }
-    if (this.health > 50) {
-      console.log(`${this.name} wins!`);
-    } else {
-      console.log(`${adventurer.name} wins!`);
-    }
-  }
 }
 
 const healers = new AdventurerFactory("Healer");
-const robin = healers.generate("Robin");
-
+const robinnn = healers.generate("Robin");
+const batman = healers.generate("Batman");
+robinnn.duel(batman);
 
 
 // Part 6: Developing Skills
