@@ -191,3 +191,31 @@ const newFrank = new Companion("Frank", "Flea", ["small hat", "sunglasses"]);
 // Add a check to the constructor of the Adventurer class that ensures the given role matches one of these values.
 // Are there other static properties or methods that make sense to add to these classes?
 
+
+
+
+
+// Part 5: Gather your Party
+// Sometimes, you need many objects of a class that have one or more shared property values. A common approach for creating many similar objects of a single class, and keeping track of them is creating a “factory.”
+// Factories are classes that generate objects according to the factory’s instance properties.
+// As an example, let’s look at how we might create many “healer” role adventurers using a factory:
+
+class AdventurerFactory {  
+  constructor (role) {
+    this.role = role;
+    this.adventurers = [];
+  }
+  generate (name) {
+    const newAdventurer = new Adventurer(name, this.role);
+    this.adventurers.push(newAdventurer);
+  }
+  findByIndex (index) {
+    return this.adventurers[index];
+  }
+  findByName (name) {
+    return this.adventurers.find((a) => a.name === name);
+  }
+}
+
+const healers = new AdventurerFactory("Healer");
+const robin = healers.generate("Robin");
