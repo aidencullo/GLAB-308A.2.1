@@ -11,12 +11,45 @@
 // Create a "factory."
 
 
-const adventurer = {
-  name: "Robin",
-  health: 10,
-  inventory: ["sword", "potion", "artifact"]
-}
+
+// part 1
+
+
+// const adventurer = {
+//   name: "Robin",
+//   health: 10,
+//   inventory: ["sword", "potion", "artifact"]
+// }
+
+// // As an additional practice exercise, create a loop that logs each item in Robin’s inventory.
+
+// adventurer.inventory.map(console.log)
+
+
+
+
+// redefine adventurer
 
 // As an additional practice exercise, create a loop that logs each item in Robin’s inventory.
 
-adventurer.inventory.map(console.log)
+
+// Add a “companion” sub-object to “Leo” with the following properties:
+// The companion’s name is “Frank.”
+// The companion’s type is “Flea.”
+// The companion has its own belongings, which includes a small hat and sunglasses.
+
+
+const adventurer = {
+  name: "Robin",
+  health: 10,
+  inventory: ["sword", "potion", "artifact"],
+  companion: {
+    name: "Leo",
+    type: "Cat",
+    companion: {
+      name: "Frank",
+      type: "Flea",
+      inventory: ["hat", "sunglasses"],
+    }
+  }
+}
