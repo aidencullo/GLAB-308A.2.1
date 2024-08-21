@@ -138,3 +138,26 @@ class Adventurer extends Character {
 
 // What else should an adventurer be able to do? What other properties should they have?
 
+
+
+
+// Next, create a Companion class with properties and methods specific to the companions.
+
+
+
+class Companion extends Character {
+  constructor (name, type) {
+    super(name);
+    this.type = type;
+    this.inventory.push("bedroll", "50 gold coins");
+  }
+  help () {
+    console.log(`${this.name} is helping behind...`);
+    super.roll();
+  }
+}
+// Add a “companion” sub-object to “Leo” with the following properties:
+// The companion’s name is “Frank.”
+// The companion’s type is “Flea.”
+// The companion has its own belongings, which includes a small hat and sunglasses.
+
